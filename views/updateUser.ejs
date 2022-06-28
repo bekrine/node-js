@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/user" method="post">
+    <form action='/user?_method=PUT' method="post">
+        <select name="selectUser"> 
+            <% data.forEach(user => {%>
+                <option value=<%= user.id %> >
+                    <%= user.name  %> 
+                </option>
+                
+          <% }); %> 
+        </select>
         <div>
             <label for="name">name</label>
             <input name="name" type="text" value=<%= locals.name %> >
@@ -16,7 +24,7 @@
             <label for="email">email</label>
             <input name="email" type="text" value=<%= locals.email %> >
         </div>
-        <button type="submit"> submit</button>
+        <button type="submit"> update</button>
     </form>
 </body>
 </html>
